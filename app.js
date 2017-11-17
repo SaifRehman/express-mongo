@@ -4,3 +4,5 @@ var assert = require('assert');
 var path = require('path');
 var hbs = require('express-handlebars');
 var bodyParser = require('body-parser');
+
+var app = express();
