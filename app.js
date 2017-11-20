@@ -1,21 +1,19 @@
 var express = require('express');
+var app = express();
 var mongoClient = require('mongodb').MongoClient();
 var assert = require('assert');
 var path = require('path');
 var hbs = require('express-handlebars');
 var bodyParser = require('body-parser');
-
 var index = require('./routes/index');
 
-var app = express();
-app.engine('hbs', hbs({ extname: "hbs", layoutsDir: __dirname + "views", defaultLayout: "layout" }));
-app.set('view engine', hbs);
-app.set('views', path.join(__dirname + "views"));
+app.engine('hbs', hbs({ extname: "hbs", layoutsDir: __dirname + "/views/", defaultLayout: "layout" }));
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname + "/views"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname + "public")));
-
 
 app.use('/', index);
 
@@ -33,4 +31,9 @@ app.use(function(err, req, res, next) {
     res.render('error', { error: err });
 });
 
+app.get("/", function(req, res) {
+    res.send("Hello WOrld!!");
+});
+
+// app.listen(8000);
 module.exports = app;
