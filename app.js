@@ -13,7 +13,7 @@ app.set('views', path.join(__dirname + "/views"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname + "public")));
+app.use(express.static(path.join(__dirname + "/public")));
 
 app.use('/', index);
 
@@ -28,12 +28,15 @@ app.use(function(err, req, res, next) {
     res.locals.error = req.app.get("env") === "development" ? err : {};
 
     res.status = (err.status || 500);
-    res.render('error', { error: err });
+    res.render('error', {
+        msg: err.message,
+        error: {}
+    });
 });
 
-app.get("/", function(req, res) {
-    res.send("Hello WOrld!!");
-});
+// app.get("/", function(req, res) {
+//     res.send("Hello WOrld!!");
+// });
 
 // app.listen(8000);
 module.exports = app;
