@@ -1,4 +1,4 @@
 # Express-Mongo
 CRUD operations using express-mongo
 
-The app performs crud operations
+This is toDo List that performs CRUD operations using express and mongo
