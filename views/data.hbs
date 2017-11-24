@@ -1,4 +1,4 @@
-<div class="container-fluid">
+{{!-- <div class="container-fluid">
     <div class="container">
         <h1>MongoDB with Express</h1>
         <hr>
@@ -15,17 +15,17 @@
                     <div class="entry-container">
                         {{# each items}}
                             <div class="item-wrapper">
-                                <div><label>Id: </label> {{this._id}}</div>
-                                <div><label>Name: </label>{{this.name}}</div>
+                                <div><label>Id: {{this._id}}</div>
+                                <div>Name: {{this.name}}</div>
                                 <ul>
                                     <div class="heading-list">List of To-Do things</div>
                                     
                                     {{# each this.item}}
                                         <li>{{this}}</li>
                                     {{/each}}
-                                </ul>
+                                </ul> --}}
                                 {{!-- <div>List: {{this.item}}</div> --}}
-                            </div>
+                            {{!-- </div>
                         {{/each}}
                     </div>
                 </div>
@@ -39,11 +39,11 @@
                 <hr>
                 <div class="card-body">
                     <form class="form" method="post" action="/insert">
-                        <div class="form-group">
+                        <div class="form-group material-form">
                             <input type="text" name="name" id="name" required>
                             <label for="name">Name</label>
                         </div>
-                        <div class="form-group" id="list-container">
+                        <div class="form-group" id="add-list-container">
                             <label for="list">List Items</label>
                             <input type="text" placeholder="Item" id="list-input" class="list_item" name="listItem">
                         </div>
@@ -51,8 +51,8 @@
                             <button type="submit" name="submit" id="submit" class="btn">Submit</button>
                         </div>
                     </form>
-                    <div class="btn-wrapper" style="padding-top:0; position:absolute; top:176.65px; left:55%" id="add-button-wrapper">
-                        <button id="add" class="btn" onclick="add()">Add More</button>
+                    <div class="btn-wrapper" style="top: 176.65px;" id="add-button-wrapper">
+                        <button id="add" class="btn" onclick="add(this.id)">Add More</button>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,26 @@
                 </div>
                 <hr>
                 <div class="card-body">
-                    
+                    <form class="form" method="post" action="/update">
+                        <div class="form-group material-form">
+                            <input type="text" name="id" id="id" required>
+                            <label for="name">Id</label>
+                        </div>
+                        <div class="form-group material-form">
+                            <input type="text" name="name" id="name" required>
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="form-group" id="update-list-container">
+                            <label for="list">List Items</label>
+                            <input type="text" name="listItem" placeholder="Item" id="list-input" class="list_item">
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="submit" name="submit" id="submit" class="btn" onclick="insert()">Submit</button>
+                        </div>
+                    </form>
+                    <div class="btn-wrapper" style="top: 242.65px;" id="update-button-wrapper">
+                        <button id="updateOne" class="btn" onclick="add(this.id)">Add More</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,4 +99,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

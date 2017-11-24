@@ -6,28 +6,27 @@ function increment() {
     return x;
 }
 
-function add() {
+function add(id) {
     var top;
+    parent = document.getElementById(id).parentNode;
+    form = parent.previousElementSibling;
+    container = form.childNodes[3];
+    if (container.id == "add-list-container") {
+        container = form.childNodes[3];
+    } else {
+        container = form.childNodes[5];
+    }
     var input = document.createElement("input");
     input.setAttribute("placeholder", "Item");
     input.setAttribute("class", "list_item");
     input.setAttribute("name", "listItem");
-    document.getElementById('list-container').appendChild(input);
+    container.appendChild(input);
     increment();
-    // if (x == 1) {
-    top = document.getElementById('add-button-wrapper').style.top;
+    // console.log(form);
+    top = parent.style.top;
     top = parseFloat(top.substring(0, 6));
     top = top + 52;
-    //hao make submit moof? cause it part of the form, the other one aint
-    document.getElementById('add-button-wrapper').style.top = String(top) + "px";
-    // } else if (x > 1) {
-    // top = document.getElementById('add-button-wrapper').style.top;
-    // top = parseInt(top.substring(0, 2));
-    // top = top + 3;
-    // document.getElementById('add-button-wrapper').style.top = String(top) + "px";
-    // } else {
-    //     return;
-    // }
+    parent.style.top = String(top) + "px";
 }
 
 // ----- If I want to display the data(not storing it in the database right now) ------ //

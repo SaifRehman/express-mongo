@@ -110,7 +110,7 @@ body {
     transition: 0.3s all ease;
 }
 
-.form .form-group:first-child input {
+.form .form-group.material-form input {
     width: 90%;
     margin: 5px 0;
     font-size: 18px;
@@ -120,14 +120,14 @@ body {
     transition: 0.3s all ease;
 }
 
-.form .form-group:first-child input:focus {
+.form .form-group.material-form input:focus {
     border-bottom-color: #E91E63;
     outline: 0;
     box-shadow: none;
     transition: 0.3s all ease;
 }
 
-.form .form-group:first-child label {
+.form .form-group.material-form label {
     position: absolute;
     top: 50%;
     transform: translateY(-30%);
@@ -139,14 +139,14 @@ body {
     margin: 0;
 }
 
-.form .form-group:first-child input:focus+label {
+.form .form-group.material-form input:focus+label {
     top: 15%;
     font-size: 10px;
     color: #F50057;
     transition: 0.3s all ease;
 }
 
-.form .form-group:first-child input:valid+label {
+.form .form-group.material-form input:valid+label {
     top: 15%;
     font-size: 10px;
     color: #F50057;
@@ -164,6 +164,13 @@ body {
     padding: 20px 0;
     position: relative;
     left: 15%;
+}
+
+.btn-wrapper#add-button-wrapper,
+.btn-wrapper#update-button-wrapper {
+    padding-top: 0;
+    position: absolute;
+    left: 55%
 }
 
 .btn {
